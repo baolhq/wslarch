@@ -1,0 +1,42 @@
+config:
+  backup: false
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  d_bpytop:
+    src: config/bpytop
+    dst: ~/.config/bpytop
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  d_ranger:
+    src: config/ranger
+    dst: ~/.config/ranger
+  f_gh-open.sh:
+    src: dev/sh/gh-open.sh
+    dst: ~/dev/sh/gh-open.sh
+    chmod: '755'
+  d_macchina:
+    src: config/macchina
+    dst: ~/.config/macchina
+profiles:
+  archlinux:
+    dotfiles:
+    - d_nvim
+    - d_bpytop
+    - d_ranger
+    - d_macchina
+    - f_zshrc
+    - f_vimrc
+    - f_gh-open.sh
