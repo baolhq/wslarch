@@ -30,8 +30,11 @@ dotfiles:
   d_macchina:
     src: config/macchina
     dst: ~/.config/macchina
+  d_peaclock:
+    src: config/peaclock
+    dst: ~/.config/peaclock
 profiles:
-  archlinux:
+  wslarch:
     dotfiles:
     - d_nvim
     - d_bpytop
@@ -40,3 +43,4 @@ profiles:
     - f_zshrc
     - f_vimrc
     - f_gh-open.sh
+    - d_peaclock

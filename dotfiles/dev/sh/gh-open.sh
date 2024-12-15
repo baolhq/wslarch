@@ -11,4 +11,6 @@ fi
 branch=$(git symbolic-ref --short HEAD)
 remote_url=$(git config --get remote.origin.url)
 
-xdg-open "$remote_url"
+{
+	cmd.exe /C start "$remote_url"
+} &> /dev/null

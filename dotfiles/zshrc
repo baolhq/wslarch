@@ -98,6 +98,10 @@ function pacl() {
   sudo pacman -Rns $(pacman -Qdtq)
 }
 
+# Windows apps
+alias np="notepad.exe"
+alias ex="explorer.exe"
+
 # Python
 alias venv="source venv/bin/activate"
 alias vesi="pip install -r requirements.txt"
@@ -114,5 +118,5 @@ alias aqa="asciiquarium"
 alias top="bpytop"
 alias pps="pipes.sh"
 alias pcl="peaclock --config-dir ~/.config/peaclock"
-alias ddr="~/git/dotdrop/dotdrop.sh"
+alias ddr="~/git/wslarch/dotdrop.sh"
 
