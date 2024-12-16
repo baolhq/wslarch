@@ -21,21 +21,30 @@ return { -- Useful plugin to show you pending keybinds.
 		local lazy = require("lazy")
 		wk.add({
 			{ "<leader>L", group = "Lazy" },
-			{ "<leader>Li", lazy.show, desc = "Lazy info" },
-			{ "<leader>Lc", lazy.check, desc = "Check plugins" },
-			{ "<leader>Lu", lazy.update, desc = "Update plugins" },
-			{ "<leader>Ld", lazy.debug, desc = "Debug" },
-			{ "<leader>Ll", lazy.log, desc = "View log" },
-			{ "<leader>Lh", lazy.help, desc = "Help" },
-			{ "<leader>Lr", lazy.restore, desc = "Restore" },
-			{ "<leader>Ls", lazy.sync, desc = "Sync plugins" },
+			{ "<leader>Li", lazy.show, desc = "Lazy: Info" },
+			{ "<leader>Lc", lazy.check, desc = "Lazy: Check" },
+			{ "<leader>Lu", lazy.update, desc = "Lazy: Update" },
+			{ "<leader>Ld", lazy.debug, desc = "Lazy: Debug" },
+			{ "<leader>Ll", lazy.log, desc = "Lazy: Log" },
+			{ "<leader>Lh", lazy.help, desc = "Lazy: Help" },
+			{ "<leader>Lr", lazy.restore, desc = "Lazy: Restore" },
+			{ "<leader>Ls", lazy.sync, desc = "Lazy: Sync" },
 		})
 
 		-- [[ LSP ]]
+		local conform = require("conform")
 		wk.add({
 			{ "<leader>l", group = "LSP" },
 			{ "<leader>la", vim.lsp.buf.code_action, desc = "Code action" },
 			{ "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
+			{ "<leader>ld", vim.diagnostic.open_float, desc = "Floating diagnostic" },
+			{
+				"<leader>lf",
+				function()
+					conform.format({ async = true, lsp_format = "fallback" })
+				end,
+				desc = "Format buffer",
+			},
 		})
 
 		-- [[ Debug ]]
@@ -112,27 +121,31 @@ return { -- Useful plugin to show you pending keybinds.
 		-- [[ Rust ]]
 		wk.add({
 			{ "<leader>r", group = "Rust" },
-			{ "<leader>rr", "<cmd>!cargo run<CR>", desc = "Run: Debug" },
-			{ "<leader>rb", "<cmd>!cargo build<CR>", desc = "Build: Debug" },
-			{ "<leader>rl", "<cmd>!cargo build --release<CR>", desc = "Build: Release" },
-			{ "<leader>rl", "<cmd>!cargo build --release<CR>", desc = "Build: Release" },
-			{ "<leader>rc", "<cmd>!cargo check<CR>", desc = "Cargo: Check" },
-			{ "<leader>ru", "<cmd>!cargo update<CR>", desc = "Cargo: Update" },
+			{ "<leader>rr", "<cmd>!cargo run<CR>", desc = "Run (debug)" },
+			{ "<leader>rb", "<cmd>!cargo build<CR>", desc = "Build (debug)" },
+			{ "<leader>rl", "<cmd>!cargo build --release<CR>", desc = "Build (release)" },
+			{ "<leader>rd", "<cmd>!cargo doc --open<CR>", desc = "Open docs" },
+			{ "<leader>rc", "<cmd>!cargo check<CR>", desc = "Cargo check" },
+			{ "<leader>ru", "<cmd>!cargo update<CR>", desc = "Update packages" },
 			{
 				"<leader>ra",
 				rhs = function()
 					local pkg = vim.fn.input("Package to add: ")
-					vim.cmd("!cargo add " .. pkg)
+					if string.len(pkg) > 0 then
+						vim.cmd("!cargo add " .. pkg)
+					end
 				end,
-				desc = "Cargo: Add package",
+				desc = "Add package",
 			},
 			{
-				"<leader>rd",
+				"<leader>rm",
 				rhs = function()
 					local pkg = vim.fn.input("Package to remove: ")
-					vim.cmd("!cargo remove " .. pkg)
+					if string.len(pkg) > 0 then
+						vim.cmd("!cargo remove " .. pkg)
+					end
 				end,
-				desc = "Cargo: Remove package",
+				desc = "Remove package",
 			},
 		})
 	end,
