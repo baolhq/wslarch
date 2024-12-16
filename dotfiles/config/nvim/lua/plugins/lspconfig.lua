@@ -29,19 +29,6 @@ return { -- LSP plugins
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 				callback = function(event)
-					local builtin = require("telescope.builtin")
-					local map = function(keys, func, desc, mode)
-						mode = mode or "n"
-						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
-					end
-
-					map("gd", builtin.lsp_definitions, "Goto definition")
-					map("gr", builtin.lsp_references, "Goto references")
-					map("gI", builtin.lsp_implementations, "Goto implementation")
-					map("gD", vim.lsp.buf.declaration, "Goto declaration")
-					map("<leader>la", vim.lsp.buf.code_action, "Code action", { "n", "x" })
-					map("<leader>lr", vim.lsp.buf.rename, "Rename")
-
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
 					--    See `:help CursorHold` for information about when this is executed

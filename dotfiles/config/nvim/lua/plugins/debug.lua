@@ -16,20 +16,6 @@ return { -- Setup debuggers
 		local dap = require("dap")
 		local dapui = require("dapui")
 
-		local map = function(keys, callback, desc, mode)
-			mode = mode or "n"
-			vim.keymap.set(mode, keys, function()
-				callback()
-			end, { desc = desc })
-		end
-
-		-- DAP keymaps
-		map("<leader>ds", dap.continue, "Start/Continue")
-		map("<leader>di", dap.step_into, "Step into")
-		map("<leader>do", dap.step_over, "Step over")
-		map("<leader>du", dap.step_out, "Step out")
-		map("<leader>dt", dap.toggle_breakpoint, "Toggle breakpoint")
-
 		-- Here we list out DAP to install
 		require("mason-nvim-dap").setup({
 			ensure_installed = {
@@ -110,8 +96,6 @@ return { -- Setup debuggers
 				},
 			},
 		})
-
-		vim.keymap.set("n", "<leader>dU", dapui.toggle, { desc = "Toggle UI" })
 
 		-- Change breakpoint icons
 		vim.api.nvim_set_hl(0, "DapBreak", { fg = "#e51400" })

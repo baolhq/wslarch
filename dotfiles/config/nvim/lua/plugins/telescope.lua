@@ -50,18 +50,6 @@ return { -- Fuzzy finder (files, lsp, etc)
 			-- Enable Telescope extensions if they are installed
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
-
-			-- See `:help telescope.builtin`
-			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>sc", builtin.command_history, { desc = "Command history" })
-			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Help" })
-			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
-			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Files" })
-			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Recent" })
-			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Live grep" })
-			vim.keymap.set("n", "<leader>sj", builtin.buffers, { desc = "Jump to" })
-			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Diagnostics" })
-			vim.keymap.set("n", "<leader>sb", builtin.current_buffer_fuzzy_find, { desc = "Current buffer" })
 		end,
 	},
 }
