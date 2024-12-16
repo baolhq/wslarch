@@ -69,40 +69,21 @@ return { -- Setup debuggers
 				},
 				{
 					elements = {
-						{ id = "relp", size = 0.45 },
+						{ id = "repl", size = 0.45 },
 						{ id = "console", size = 0.55 },
 					},
 					size = 0.25,
 					position = "bottom",
 				},
 			},
-			-- Set icons to characters that are more likely to work in every terminal.
-			--    Feel free to remove or use ones that you like more! :)
-			--    Don't feel like these are good choices.
-			icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-			controls = {
-				enabled = true,
-				-- Display controls in this element
-				element = "repl",
-				icons = {
-					pause = "",
-					play = "",
-					step_into = "",
-					step_over = "",
-					step_out = "",
-					step_back = "",
-					run_last = "",
-					terminate = "",
-				},
-			},
 		})
 
 		-- Change breakpoint icons
-		vim.api.nvim_set_hl(0, "DapBreak", { fg = "#e51400" })
-		vim.api.nvim_set_hl(0, "DapStop", { fg = "#ffcc00" })
+		vim.api.nvim_set_hl(0, "DapBreak", { fg = "#eb6f92" })
+		vim.api.nvim_set_hl(0, "DapStop", { fg = "#f6c177" })
 		local breakpoint_icons = vim.g.have_nerd_font
 				and {
-					Breakpoint = "",
+					Breakpoint = "",
 					BreakpointCondition = "",
 					BreakpointRejected = "",
 					LogPoint = "",
