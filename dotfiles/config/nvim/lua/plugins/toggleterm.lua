@@ -1,5 +1,6 @@
 return { -- Toggle multiple terminals during an editing session
 	"akinsho/toggleterm.nvim",
+	lazy = true,
 	event = "VeryLazy",
 	version = "*",
 	config = function()

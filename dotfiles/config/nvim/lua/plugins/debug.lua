@@ -3,25 +3,24 @@ return { -- Setup debuggers
 	event = "VeryLazy",
 	dependencies = {
 		-- Creates a beautiful debugger UI
-		"rcarriga/nvim-dap-ui",
+		{
+			"rcarriga/nvim-dap-ui",
+			event = "VeryLazy",
+		},
 
 		-- Required dependency for nvim-dap-ui
-		"nvim-neotest/nvim-nio",
+		{
+
+			"nvim-neotest/nvim-nio",
+			event = "VeryLazy",
+		},
 
 		-- Debug apdater
 		"williamboman/mason.nvim",
-		"jay-babu/mason-nvim-dap.nvim",
 	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
-
-		-- Here we list out DAP to install
-		require("mason-nvim-dap").setup({
-			ensure_installed = {
-				"rust-analyzer",
-			},
-		})
 
 		-- CodeLLDB is an open source debugger for C/C++ and Rust
 		dap.adapters.codelldb = {

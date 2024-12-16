@@ -4,7 +4,7 @@
 
 Scroll down for list of packages that I assume you have installed on your system
 
-### Essentials
+## Essentials
 
 ```sh
 git
@@ -31,7 +31,7 @@ bpytop
 macchina
 ```
 
-##### AUR
+#### AUR
 
 ```sh
 cava
@@ -40,4 +40,3 @@ pipes.sh
 shell-color-scripts `https://gitlab.com/dwt1/shell-color-scripts`
 rose-pine-cursor
 ```
-

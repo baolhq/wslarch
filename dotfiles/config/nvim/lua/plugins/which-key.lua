@@ -32,7 +32,6 @@ return { -- Useful plugin to show you pending keybinds.
 		})
 
 		-- [[ LSP ]]
-		local conform = require("conform")
 		wk.add({
 			{ "<leader>l", group = "LSP" },
 			{ "<leader>la", vim.lsp.buf.code_action, desc = "Code action" },
@@ -41,6 +40,7 @@ return { -- Useful plugin to show you pending keybinds.
 			{
 				"<leader>lf",
 				function()
+					local conform = require("conform")
 					conform.format({ async = true, lsp_format = "fallback" })
 				end,
 				desc = "Format buffer",
@@ -53,11 +53,17 @@ return { -- Useful plugin to show you pending keybinds.
 		wk.add({
 			{ "<leader>d", group = "Debug" },
 			{ "<leader>ds", dap.continue, desc = "Start/Continue" },
-			{ "<leader>di", dap.step_into, desc = "Step into" },
 			{ "<leader>do", dap.step_over, desc = "Step over" },
+			{ "<leader>di", dap.step_into, desc = "Step into" },
 			{ "<leader>du", dap.step_out, desc = "Step out" },
 			{ "<leader>dt", dap.toggle_breakpoint, desc = "Toggle breakpoint" },
 			{ "<leader>dU", dapui.toggle, desc = "Toggle UI" },
+			{ "<F5>", dap.continue, desc = "Start/Continue" },
+			{ "<F6>", dap.step_over, desc = "Step over" },
+			{ "<F7>", dap.step_into, desc = "Step into" },
+			{ "<F8>", dap.step_out, desc = "Step out" },
+			{ "<F9>", dap.toggle_breakpoint, desc = "Toggle breakpoint" },
+			{ "<F10>", dapui.toggle, desc = "Toggle UI" },
 		})
 
 		-- [[ Telescope ]]

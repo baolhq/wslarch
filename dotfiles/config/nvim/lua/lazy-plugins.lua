@@ -2,6 +2,7 @@
 --
 -- Load all plugins under plugins/ directory
 require("lazy").setup("plugins", {
+	lazy = true,
 	-- Disable auto reload
 	change_detection = {
 		enabled = false,
