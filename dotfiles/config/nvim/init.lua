@@ -1,7 +1,7 @@
 -- Set <space> as the leader key
 vim.g.mapleader = " "
 
--- Nerd font is required
+-- Set nerd font to false if you have it
 vim.g.have_nerd_font = true
 
 -- Sourcing other configs
