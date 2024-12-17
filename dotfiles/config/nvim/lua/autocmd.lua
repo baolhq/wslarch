@@ -35,3 +35,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ timeout = 100 })
 	end,
 })
+
+-- Exit dashboard-nvim with <Esc> key
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "dashboard",
+	callback = function()
+		vim.keymap.set("n", "<Esc>", "<cmd>bprev<CR>", { buffer = true, silent = true })
+	end,
+})
