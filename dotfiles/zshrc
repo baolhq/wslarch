@@ -86,8 +86,8 @@ fi
 #########################
 
 # Sort directories first
-alias ls='ls -l --color -h --group-directories-first'
-alias la='ls -la --color -h --group-directories-first'
+alias ls="ls -l --color -h --group-directories-first"
+alias la="ls -la --color -h --group-directories-first"
 
 # Pacman 
 alias pasi="sudo pacman -S"

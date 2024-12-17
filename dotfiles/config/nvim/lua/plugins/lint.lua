@@ -6,7 +6,7 @@ return { -- Linter configurations
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
 			lua = { "luacheck" },
-			rust = { "clippy" },
+			rust = { "bacon" },
 		}
 
 		-- Preven luacheck from warning `vim` global variable
@@ -19,6 +19,15 @@ return { -- Linter configurations
 			ignore_exitcode = true,
 			parser = require("lint.parser").from_errorformat("%f:%l:%c: %m", {
 				source = "luacheck",
+			}),
+		}
+
+		lint.linters.bacon = {
+			cmd = "bacon",
+			stdin = true,
+			ignore_exitcode = true,
+			parser = require("lint.parser").from_errorformat("%f:%l:%c: %m", {
+				source = "bacon",
 			}),
 		}
 
