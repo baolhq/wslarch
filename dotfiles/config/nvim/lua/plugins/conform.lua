@@ -21,6 +21,7 @@ return { -- Setup conform formatter
 			formatters_by_ft = {
 				lua = { "stylua" },
 				rust = { "rustfmt" },
+				["*"] = { "prettier" },
 			},
 		},
 	},

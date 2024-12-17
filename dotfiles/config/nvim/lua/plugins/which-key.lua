@@ -9,6 +9,7 @@ return { -- Useful plugin to show you pending keybinds.
 			icons = {
 				mappings = false,
 			},
+			preset = "helix",
 		})
 
 		-- Insert comma/semicolon at the end of line
