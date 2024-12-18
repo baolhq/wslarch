@@ -13,13 +13,13 @@ return { -- Distraction-free mode for neovim
 			-- by default, no options are changed for the Zen window
 			-- uncomment any of the options below, or add other vim.wo options you want to apply
 			options = {
-				-- signcolumn = "no", -- disable signcolumn
-				-- number = false, -- disable number column
-				-- relativenumber = false, -- disable relative numbers
-				-- cursorline = false, -- disable cursorline
-				-- cursorcolumn = false, -- disable cursor column
-				-- foldcolumn = "0", -- disable fold column
-				-- list = false, -- disable whitespace characters
+				signcolumn = "no", -- disable signcolumn
+				number = false, -- disable number column
+				relativenumber = false, -- disable relative numbers
+				cursorline = false, -- disable cursorline
+				cursorcolumn = false, -- disable cursor column
+				foldcolumn = "0", -- disable fold column
+				list = false, -- disable whitespace characters
 			},
 		},
 		plugins = {
@@ -46,8 +46,5 @@ return { -- Distraction-free mode for neovim
 				font = "+4", -- font size increment
 			},
 		},
-		on_close = function()
-			vim.cmd([[quit]])
-		end,
 	},
 }

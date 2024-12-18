@@ -63,23 +63,19 @@ return { -- Useful plugin to show you pending keybinds.
 			{ "<F10>", dapui.toggle, desc = "Toggle UI" },
 		})
 
-		-- [[ Telescope ]]
-		local telescope_builtin = require("telescope.builtin")
+		-- [[ Fuzzy finder ]]
 		wk.add({
 			{ "<leader>s", group = "Search" },
-			{ "<leader>sc", telescope_builtin.colorscheme, desc = "Colorscheme" },
-			{ "<leader>sp", telescope_builtin.command_history, desc = "Command history" },
-			{ "<leader>sh", telescope_builtin.help_tags, desc = "Help" },
-			{ "<leader>sk", telescope_builtin.keymaps, desc = "Keymaps" },
-			{ "<leader>sf", telescope_builtin.find_files, desc = "Search file" },
-			{ "<leader>sr", telescope_builtin.resume, desc = "Recents" },
-			{ "<leader>sg", telescope_builtin.live_grep, desc = "Live grep" },
-			{ "<leader>sj", telescope_builtin.buffers, desc = "Jump to" },
-			{ "<leader>sd", telescope_builtin.diagnostics, desc = "Diagnostics" },
-			{ "<leader>sb", telescope_builtin.current_buffer_fuzzy_find, desc = "Current buffer" },
-			{ "gd", telescope_builtin.lsp_definitions, desc = "Goto definition" },
-			{ "gr", telescope_builtin.lsp_references, desc = "Goto references" },
-			{ "gI", telescope_builtin.lsp_implementations, desc = "Goto implementation" },
+			{ "<leader>sa", "<cmd>FzfLua autocmds<CR>", desc = "Auto commands" },
+			{ "<leader>sb", "<cmd>FzfLua buffers<CR>", desc = "Buffers" },
+			{ "<leader>sc", "<cmd>FzfLua colorschemes<CR>", desc = "Colorschemes" },
+			{ "<leader>sh", "<cmd>FzfLua command_history<CR>", desc = "Command history" },
+			{ "<leader>ss", "<cmd>FzfLua search_history<CR>", desc = "Search history" },
+			{ "<leader>sk", "<cmd>FzfLua keymaps<CR>", desc = "Keymaps" },
+			{ "<leader>sf", "<cmd>FzfLua files<CR>", desc = "Files" },
+			{ "<leader>sr", "<cmd>FzfLua oldfiles<CR>", desc = "Recents" },
+			{ "<leader>sg", "<cmd>FzfLua live_grep<CR>", desc = "Live grep" },
+			{ "<leader>sb", "<cmd>FzfLua lgrep_curbuf<CR>", desc = "Grep current buffer" },
 		})
 
 		-- [[ Dashboard ]]
@@ -131,6 +127,7 @@ return { -- Useful plugin to show you pending keybinds.
 		wk.add({
 			{ "<leader>r", group = "Rust", icon = "" },
 			{ "<leader>rr", "<cmd>!cargo run<CR>", desc = "Run (debug)" },
+			{ "<leader>rt", "<cmd>!cargo test<CR>", desc = "Run test" },
 			{ "<leader>rb", "<cmd>!cargo build<CR>", desc = "Build (debug)" },
 			{ "<leader>rl", "<cmd>!cargo build --release<CR>", desc = "Build (release)" },
 			{ "<leader>rd", "<cmd>!cargo doc --open<CR>", desc = "Open docs" },

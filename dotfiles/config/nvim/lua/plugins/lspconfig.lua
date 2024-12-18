@@ -21,9 +21,7 @@ return { -- LSP plugins
 			{ "williamboman/mason.nvim", config = true },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-			-- Allows extra capabilities provided by nvim-cmp
-			"hrsh7th/cmp-nvim-lsp",
+			"saghen/blink.cmp",
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -70,13 +68,6 @@ return { -- LSP plugins
 				vim.diagnostic.config({ signs = { text = diagnostic_signs } })
 			end
 
-			-- LSP servers and clients are able to communicate to each other what features they support.
-			--  By default, Neovim doesn't support everything that is in the LSP specification.
-			--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 			-- Enable the following language servers
 			local servers = {
 				lua_ls = {
@@ -90,6 +81,8 @@ return { -- LSP plugins
 						},
 					},
 				},
+				ts_ls = {},
+				rust_analyzer = {},
 			}
 
 			-- Mason configs
@@ -111,6 +104,10 @@ return { -- LSP plugins
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
+						local capabilities = vim.lsp.protocol.make_client_capabilities()
+						capabilities =
+							vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
+
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
 					end,
