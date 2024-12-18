@@ -15,8 +15,8 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
 
--- Setup clipboard for neovim
 -- WARN: Doesn't play well with WSL
+-- Setup clipboard for neovim
 --
 -- vim.schedule(function()
 -- vim.opt.clipboard = "unnamedplus"

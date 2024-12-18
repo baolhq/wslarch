@@ -26,6 +26,9 @@ return { -- Fuzzy finder (files, lsp, etc)
 							["<Esc>"] = actions.close,
 						},
 					},
+					file_ignore_patterns = {
+						"node_modules",
+					},
 				},
 				pickers = {
 					command_history = {

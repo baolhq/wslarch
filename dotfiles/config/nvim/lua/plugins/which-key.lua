@@ -5,10 +5,6 @@ return { -- Useful plugin to show you pending keybinds.
 		local wk = require("which-key")
 
 		wk.setup({
-			-- Disable which-key icons
-			icons = {
-				mappings = false,
-			},
 			preset = "helix",
 		})
 
@@ -21,7 +17,7 @@ return { -- Useful plugin to show you pending keybinds.
 		-- [[ Lazy ]]
 		local lazy = require("lazy")
 		wk.add({
-			{ "<leader>L", group = "Lazy" },
+			{ "<leader>L", group = "Lazy", icon = "󰒲" },
 			{ "<leader>Li", lazy.show, desc = "Lazy: Info" },
 			{ "<leader>Lc", lazy.check, desc = "Lazy: Check" },
 			{ "<leader>Lu", lazy.update, desc = "Lazy: Update" },
@@ -34,7 +30,7 @@ return { -- Useful plugin to show you pending keybinds.
 
 		-- [[ LSP ]]
 		wk.add({
-			{ "<leader>l", group = "LSP" },
+			{ "<leader>l", group = "LSP", icon = "" },
 			{ "<leader>la", vim.lsp.buf.code_action, desc = "Code action" },
 			{ "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
 			{ "<leader>ld", vim.diagnostic.open_float, desc = "Floating diagnostic" },
@@ -71,7 +67,8 @@ return { -- Useful plugin to show you pending keybinds.
 		local telescope_builtin = require("telescope.builtin")
 		wk.add({
 			{ "<leader>s", group = "Search" },
-			{ "<leader>sc", telescope_builtin.command_history, desc = "Command history" },
+			{ "<leader>sc", telescope_builtin.colorscheme, desc = "Colorscheme" },
+			{ "<leader>sp", telescope_builtin.command_history, desc = "Command history" },
 			{ "<leader>sh", telescope_builtin.help_tags, desc = "Help" },
 			{ "<leader>sk", telescope_builtin.keymaps, desc = "Keymaps" },
 			{ "<leader>sf", telescope_builtin.find_files, desc = "Search file" },
@@ -83,6 +80,11 @@ return { -- Useful plugin to show you pending keybinds.
 			{ "gd", telescope_builtin.lsp_definitions, desc = "Goto definition" },
 			{ "gr", telescope_builtin.lsp_references, desc = "Goto references" },
 			{ "gI", telescope_builtin.lsp_implementations, desc = "Goto implementation" },
+		})
+
+		-- [[ Dashboard ]]
+		wk.add({
+			{ "<leader><leader>", "<cmd>Dashboard<CR>", desc = "Dashboard", icon = "󰕮" },
 		})
 
 		-- [[ ToggleTerm ]]
@@ -127,7 +129,7 @@ return { -- Useful plugin to show you pending keybinds.
 
 		-- [[ Rust ]]
 		wk.add({
-			{ "<leader>r", group = "Rust" },
+			{ "<leader>r", group = "Rust", icon = "" },
 			{ "<leader>rr", "<cmd>!cargo run<CR>", desc = "Run (debug)" },
 			{ "<leader>rb", "<cmd>!cargo build<CR>", desc = "Build (debug)" },
 			{ "<leader>rl", "<cmd>!cargo build --release<CR>", desc = "Build (release)" },
@@ -154,6 +156,13 @@ return { -- Useful plugin to show you pending keybinds.
 				end,
 				desc = "Remove package",
 			},
+		})
+
+		-- [[ Zen mode ]]
+		local zm = require("zen-mode")
+		wk.add({
+			{ "<leader>u", group = "UI" },
+			{ "<leader>uz", zm.toggle, desc = "Toggle zen mode" },
 		})
 	end,
 }
