@@ -120,7 +120,6 @@ return { -- Useful plugin to show you pending keybinds.
 			{ "<leader>bj", bufferline.pick, desc = "Jump to" },
 			{ "<leader>bp", bufferline.groups.toggle_pin, desc = "Toggle pin" },
 			{ "<leader>bo", bufferline.close_others, desc = "Close others" },
-			{ "<leader>bs", "<cmd>Telescope scope buffers<CR>", desc = "Find buffer" },
 		})
 
 		-- [[ Rust ]]
